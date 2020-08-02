@@ -9,6 +9,7 @@ const cron = require('node-cron')
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
 const mongoose = require('mongoose')
+require('dotenv').config()
 const rssParser = require('rss-parser')
 const stripTags = require('striptags')
 
@@ -21,8 +22,9 @@ const navLinksData = require('@data/navLinks')
 
 // Constants
 const app = express()
-const dbURI =
-  'mongodb+srv://db-user:fKHZCKEq0Bt5nBod@main-cluster.isbtf.mongodb.net/main-db?retryWrites=true&w=majority'
+const dbURI = process.env.DB_URI
+const host = process.env.HOST
+const port = process.env.PORT
 
 // App Setup
 app.engine('html', expressHandlebars({ extname: 'html' }))
@@ -169,8 +171,8 @@ mongoose
   .connect(dbURI, { useUnifiedTopology: true, useNewUrlParser: true })
   .then((result) => {
     console.log('Connected to db')
-    app.listen(4000, () => {
-      console.log('Listening on Port 4000: http://localhost:4000')
+    app.listen(port, () => {
+      console.log(`Listening on Port ${port}: ${host}:${4000}`)
     })
   })
   .catch((error) => console.log('Error: ', error))
