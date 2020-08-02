@@ -1,0 +1,36 @@
+<form action="/admin" method="POST">
+  <div>
+    <div>
+      <div class="grid grid-cols-1 row-gap-6 col-gap-4 mt-3 sm:grid-cols-6">
+        <div class="sm:col-span-6">
+          <input
+            id="title"
+            class="mt-4 form-input input--admin"
+            name="title"
+            placeholder="Title"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="sm:col-span-6">
+          <textarea
+            id="summary"
+            rows="4"
+            class="input--admin form-textarea"
+            name="summary"
+            placeholder="Summary"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-5 mt-8 border-t border-gray-200">
+    <button
+      type="submit"
+      class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700"
+    >
+      Save
+    </button>
+  </div>
+</form>

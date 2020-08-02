@@ -1,0 +1,15 @@
+<!-- Static sidebar for desktop -->
+<div class="hidden md:flex md:flex-shrink-0">
+  <div class="flex flex-col w-64">
+    <!-- Sidebar component, swap this element with another sidebar if you like -->
+    <div class="flex flex-col flex-1 h-0">
+      <!-- prettier-ignore -->
+      <div class="flex items-center flex-shrink-0 h-16 px-4 bg-blue-700">
+        {{> general/logo--light }}
+      </div>
+      <!-- prettier-ignore -->
+      {{> admin/sidebar/nav }} 
+      {{> admin/sidebar/bottom }}
+    </div>
+  </div>
+</div>

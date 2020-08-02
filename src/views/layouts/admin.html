@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ pageTitle }}</title>
+
+    <!-- Tailwind/CSS Init -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <!-- AlpineJS -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.4.1/dist/alpine.min.js"
+      defer
+    ></script>
+
+    {{#if useQuill }}
+    <!-- QuillJS -->
+    <link
+      href="https://cdn.quilljs.com/1.3.7/quill.snow.css"
+      rel="stylesheet"
+    />
+    {{/if }}
+  </head>
+
+  <body>
+    <div
+      class="flex h-screen overflow-hidden bg-gray-100"
+      x-data="{ sidebarOpen: false }"
+      @keydown.window.escape="sidebarOpen = false"
+    >
+      <!-- prettier-ignore -->
+      {{> admin/sidebar--mobile }}
+  {{> admin/sidebar }}
+  {{> admin/edit }}
+      <div class="flex flex-col flex-1 w-0 overflow-hidden">
+        {{> admin/header }}
+        <main>
+          {{{ body }}}
+        </main>
+      </div>
+    </div>
+
+    {{#if useQuill }}
+    <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
+    <script src="/assets/js/quill.js"></script>
+    {{/if }}
+
+    <!-- prettier-ignore -->
+    {{#if useEditorJs }}
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="/assets/js/editor.js"></script>
+    {{/if }}
+
+    <!-- prettier-ignore -->
+    {{#if useCkeditor }}
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script src="/assets/js/ckeditor.js"></script>
+    {{/if }}
+  </body>
+</html>

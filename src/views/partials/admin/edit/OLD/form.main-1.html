@@ -1,0 +1,148 @@
+<form class="flex justify-between" action="/admin" method="POST">
+  <div class="w-2/3 pr-8">
+    <h1 class="pt-6 text-2xl font-semibold text-gray-900">News</h1>
+    <input
+      id="title"
+      class="mt-4 form-input input--admin"
+      name="title"
+      placeholder="Title"
+      autocomplete="off"
+    />
+
+    <textarea
+      id="summary"
+      rows="4"
+      class="input--admin form-textarea"
+      name="summary"
+      placeholder="Summary"
+    ></textarea>
+  </div>
+  <!-- Slide Panel -->
+  <div
+    class="w-1/3"
+    x-data="{ open: true }"
+    @keydown.window.escape="open = false"
+  >
+    <button
+      @click="open = true"
+      x-show="!open"
+      type="button"
+      class="absolute top-0 right-0 inline-flex items-center justify-center mx-4 my-16 text-gray-500 transition duration-150 ease-in-out hover:bg-opacity-75 hover:text-gray-600 focus:outline-none focus:text-gray-500"
+    >
+      <svg
+        class="w-8 h-8 m-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        ></path>
+      </svg>
+    </button>
+    <section
+      class="flex flex-col h-screen bg-white divide-y divide-gray-200"
+      x-description="Slide-over panel, show/hide based on slide-over state."
+      x-show="open"
+      x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+      x-transition:enter-start="translate-x-full"
+      x-transition:enter-end="translate-x-0"
+      x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+      x-transition:leave-start="translate-x-0"
+      x-transition:leave-end="translate-x-full"
+    >
+      <!-- <div class="flex flex-col bg-white divide-y divide-gray-200"> -->
+      <header
+        class="flex items-center justify-between px-4 py-6 bg-blue-800 sm:px-6"
+      >
+        <button
+          type="submit"
+          class="px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-green-500 border border-transparent rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600 active:bg-green-700"
+        >
+          Save
+        </button>
+        <div
+          @click="open = false"
+          aria-label="Close panel"
+          class="text-gray-300 transition duration-150 ease-in-out cursor-pointer hover:text-white"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </div>
+      </header>
+      <!-- <div class="flex flex-col justify-between flex-1"> -->
+      <div class="h-full px-4 overflow-y-auto divide-y divide-gray-200 sm:px-6">
+        <div class="pt-6 pb-5 space-y-6">
+          <div class="space-y-1">
+            <label
+              for="project_name"
+              class="block text-sm font-medium leading-5 text-gray-900"
+            >
+              Project name
+            </label>
+            <div class="relative rounded-md shadow-sm">
+              <input
+                id="project_name"
+                class="block w-full transition duration-150 ease-in-out focus:border-blue-200 focus:shadow-none form-input sm:text-sm sm:leading-5"
+              />
+            </div>
+          </div>
+          <div class="space-y-1">
+            <label
+              for="description"
+              class="block text-sm font-medium leading-5 text-gray-900"
+            >
+              Summary
+            </label>
+            <div class="relative rounded-md shadow-sm">
+              <textarea
+                id="description"
+                rows="4"
+                class="block w-full transition duration-150 ease-in-out focus:border-blue-200 focus:border-8 focus:shadow-none form-input sm:text-sm sm:leading-5"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eius
+          nobis reiciendis, modi repudiandae illo! In atque, dignissimos autem
+          animi ipsam delectus doloremque enim officia dolor iusto quidem itaque
+          quia recusandae aperiam? Tempora quas est aspernatur dolores
+          voluptatem culpa inventore, minima impedit voluptatibus laudantium
+          iure ducimus ipsum ad mollitia repellat optio eos! Laboriosam,
+          incidunt? Harum aspernatur error nisi officia? Odit maiores nemo
+          repellat laudantium asperiores quae veritatis corrupti aliquam laborum
+          repudiandae totam deleniti est, magnam velit necessitatibus alias
+          fugit praesentium similique, eius accusantium ad inventore? Accusamus
+          est veritatis ex praesentium perferendis, quibusdam aperiam, earum
+          voluptas quidem eligendi amet, aliquid molestias?
+        </div>
+        <!-- </div> -->
+        <!-- </div> -->
+      </div>
+    </section>
+  </div>
+
+  <!-- <div class="pt-5 mt-8 border-t border-gray-200">
+    <button
+      type="submit"
+      class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700"
+    >
+      Save
+    </button>
+  </div> -->
+</form>

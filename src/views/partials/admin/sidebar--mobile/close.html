@@ -1,0 +1,23 @@
+<div class="absolute top-0 right-0 p-1 -mr-14">
+  <button
+    x-show="sidebarOpen"
+    @click="sidebarOpen = false"
+    class="flex items-center justify-center w-12 h-12 rounded-full focus:outline-none focus:bg-gray-600"
+    aria-label="Close sidebar"
+    style="display: none;"
+  >
+    <svg
+      class="w-6 h-6 text-white"
+      stroke="currentColor"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"
+      ></path>
+    </svg>
+  </button>
+</div>

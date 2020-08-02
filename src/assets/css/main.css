@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+
+@responsive {
+  @variants hover, focus {
+    .grid-justify-start {
+      justify-items: start;
+    }
+    .grid-justify-end {
+      justify-items: end;
+    }
+    .grid-justify-center {
+      justify-items: center;
+    }
+    .grid-justify-stretch {
+      justify-items: stretch;
+    }
+  }
+}
+
+/* Button Base */
+.btn {
+  @apply cursor-pointer font-medium leading-5 px-5 py-3 text-gray-50 transition duration-150 ease-in-out;
+}
+
+.btn:focus {
+  @apply outline-none;
+}
+
+/* --- Button Sizes --- */
+.btn-sm {
+  @apply px-4 py-2 text-sm;
+}
+
+.btn-md {
+  @apply px-6 text-base;
+}
+
+.btn-lg {
+  @apply px-8 px-5 text-lg;
+}
+
+.btn-xl {
+  @apply px-12 py-7 text-xl;
+}
+
+/* --- Button Colors --- */
+
+/* Gray/Grey Button */
+.btn-gray,
+.btn-grey {
+  @apply bg-gray-300 text-gray-800;
+}
+
+.btn-gray:active,
+.btn-grey:active {
+  @apply bg-gray-200;
+}
+
+.btn-gray:focus,
+.btn-grey:focus {
+  @apply bg-gray-200;
+}
+
+.btn-gray:hover,
+.btn-grey:hover {
+  @apply bg-gray-200;
+}
+
+/* Gray/Grey Button (light) */
+.btn-gray--light,
+.btn-grey--light {
+  @apply bg-gray-100 text-gray-800;
+}
+
+.btn-gray--light:active,
+.btn-grey--light:active {
+  @apply bg-gray-300;
+}
+
+.btn-gray--light:focus,
+.btn-grey--light:focus {
+  @apply bg-gray-200;
+}
+
+.btn-gray--light:hover,
+.btn-grey--light:hover {
+  @apply bg-gray-200;
+}
+
+/* Gray/Grey Button (dark) */
+.btn-gray--dark,
+.btn-grey--dark {
+  @apply bg-gray-700 text-gray-50;
+}
+
+.btn-gray--dark:active,
+.btn-grey--dark:active {
+  @apply bg-gray-900;
+}
+
+.btn-gray--dark:focus,
+.btn-grey--dark:focus {
+  @apply bg-gray-800;
+}
+
+.btn-gray--dark:hover,
+.btn-grey--dark:hover {
+  @apply bg-gray-800;
+}
+
+/* Green Button */
+.btn-green {
+  @apply bg-green-500;
+}
+
+.btn-green:active {
+  @apply bg-green-700;
+}
+
+.btn-green:focus {
+  @apply bg-green-600;
+}
+
+.btn-green:hover {
+  @apply bg-green-600;
+}
+
+/* Yellow Button (light) */
+.btn-yellow--light {
+  @apply bg-yellow-200 text-black;
+}
+
+.btn-yellow--light:active {
+  @apply bg-yellow-100;
+}
+
+.btn-yellow--light:focus {
+  @apply bg-yellow-100;
+}
+
+.btn-yellow--light:hover {
+  @apply bg-yellow-100;
+}
+
+/* Yellow Button (dark) */
+.btn-yellow--dark {
+  @apply bg-yellow-500 text-black;
+}
+
+.btn-yellow--dark:active {
+  @apply bg-yellow-700;
+}
+
+.btn-yellow--dark:focus {
+  @apply bg-yellow-600;
+}
+
+.btn-yellow--dark:hover {
+  @apply bg-yellow-600;
+}
+
+/* Input */
+.input--admin {
+  @apply bg-gray-300;
+  @apply flex-1 block;
+  @apply font-medium;
+  @apply w-full min-w-0;
+  @apply mb-6 px-4;
+  @apply transition duration-300 ease-in-out;
+  @apply border-4 border-transparent rounded-none;
+}
+
+.input--admin:admin {
+  @apply bg-gray-50;
+  @apply border-gray-200;
+  @apply outline-none;
+}
+
+.input--admin:focus {
+  @apply bg-gray-50;
+  @apply border-gray-200;
+  @apply outline-none shadow-none;
+}
+
+.input--admin:last-child {
+  @apply mb-0;
+}
+
+.input--admin::placeholder {
+  @apply text-gray-500;
+}
+
+@screen sm {
+  .input--admin {
+    @apply text-xl leading-5;
+  }
+}
+
+@tailwind utilities;

@@ -1,0 +1,157 @@
+<div class="pb-6 pl-4 sm:pl-6 md:pl-8 focus:outline-none">
+  <form class="flex justify-between h-full pb-6" action="/admin" method="POST">
+    <div
+      class="flex-grow h-screen pr-8 overflow-y-auto transition duration-300 ease-in-out"
+    >
+      <h1 class="pt-6 text-2xl font-semibold text-gray-900">News</h1>
+      <input
+        id="title"
+        class="mt-4 form-input input--admin"
+        name="title"
+        placeholder="Title"
+        autocomplete="off"
+      />
+      <div class="max-h-96" id="editor"></div>
+    </div>
+    <!-- Slide Panel -->
+    <div
+      :class="{ 'w-1/3' : open }"
+      x-data="{ open: true }"
+      @keydown.window.escape="open = false"
+    >
+      <button
+        @click="open = true"
+        x-show="!open"
+        type="button"
+        class="absolute top-0 right-0 inline-flex items-center justify-center mx-4 my-16 text-gray-500 transition duration-150 ease-in-out hover:bg-opacity-75 hover:text-gray-600 focus:outline-none focus:text-gray-500"
+      >
+        <svg
+          class="w-8 h-8 m-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+      <section
+        class="flex flex-col h-full bg-white divide-y divide-gray-200"
+        x-description="Slide-over panel, show/hide based on slide-over state."
+        x-show="open"
+        x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+        x-transition:enter-start="translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="translate-x-full"
+      >
+        <!-- <div class="flex flex-col bg-white divide-y divide-gray-200"> -->
+        <header
+          class="flex flex-wrap items-center justify-between px-4 py-6 bg-blue-800 sm:px-6"
+        >
+          <!-- <button
+            type="submit"
+            class="px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-green-500 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600 active:bg-green-700"
+          >
+            Save
+          </button> -->
+          <button
+            type="submit"
+            class="px-8 font-semibold rounded-md btn btn-sm btn-green"
+          >
+            Save
+          </button>
+          <div class="ml-2 rounded-md btn btn-sm btn-yellow--light">
+            Save as Draft
+          </div>
+          <div class="ml-2 mr-3 rounded-md btn btn-sm btn-grey">
+            Preview
+          </div>
+          <div
+            @click="open = false"
+            aria-label="Close panel"
+            class="text-gray-300 transition duration-150 ease-in-out cursor-pointer hover:text-white"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </div>
+        </header>
+        <div>
+          <div class="sm:hidden">
+            <select aria-label="Selected tab" class="block w-full form-select">
+              <option>My Account</option>
+              <option>Company</option>
+              <option selected>Team Members</option>
+              <option>Billing</option>
+            </select>
+          </div>
+          <div class="hidden sm:block">
+            <div class="border-b border-gray-200">
+              <nav class="flex -mb-px">
+                <a
+                  href="#"
+                  class="w-1/3 px-1 py-4 text-sm font-medium leading-5 text-center text-gray-500 border-b-2 border-transparent hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
+                >
+                  Content
+                </a>
+                <a
+                  href="#"
+                  class="w-1/3 px-1 py-4 text-sm font-medium leading-5 text-center text-gray-500 border-b-2 border-transparent hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
+                >
+                  Meta
+                </a>
+                <a
+                  href="#"
+                  class="w-1/3 px-1 py-4 text-sm font-medium leading-5 text-center text-indigo-600 border-b-2 border-indigo-500 focus:outline-none focus:text-indigo-800 focus:border-indigo-700"
+                  aria-current="page"
+                >
+                  Styles
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="px-4 pb-6 overflow-y-auto divide-y divide-gray-200 sm:px-6"
+          style="height: calc(100vh - 150px);"
+        >
+          <div class="pt-6 pb-5 space-y-6">
+            <div class="space-y-1">
+              <label
+                for="summary"
+                class="block text-sm font-medium leading-5 text-gray-900"
+              >
+                Summary
+              </label>
+              <div class="relative rounded-md shadow-sm">
+                <textarea
+                  id="summary"
+                  name="summary"
+                  rows="4"
+                  class="block w-full transition duration-150 ease-in-out focus:border-blue-200 focus:border-8 focus:shadow-none form-input sm:text-sm sm:leading-5"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,57 @@
+<div
+  x-description="Mobile menu, show/hide based on mobile menu state."
+  x-show="mobileMenuOpen"
+  x-transition:enter="duration-200 ease-out"
+  x-transition:enter-start="opacity-0 scale-95"
+  x-transition:enter-end="opacity-100 scale-100"
+  x-transition:leave="duration-100 ease-in"
+  x-transition:leave-start="opacity-100 scale-100"
+  x-transition:leave-end="opacity-0 scale-95"
+  class="absolute inset-x-0 top-0 z-20 p-2 transition origin-top-right transform md:hidden"
+>
+  <div class="rounded-lg shadow-lg">
+    <div class="bg-white divide-y-2 rounded-lg shadow-xs divide-gray-50">
+      <div class="px-5 pt-5 pb-6 space-y-6 sm:space-y-8 sm:pb-8">
+        <div class="flex items-center justify-between">
+          <!-- prettier-ignore -->
+          {{> general/logo--dark }}
+          {{> main/header/mobile--close }}
+        </div>
+      </div>
+
+      <div class="px-5 py-6">
+        <div class="flex flex-col items-center">
+          {{#each navLinks}}
+          <a
+            href="{{url}}"
+            class="w-1/2 px-6 py-2 my-2 text-base font-medium leading-6 text-center text-gray-900 transition duration-150 ease-in-out rounded-md hover:bg-blue-700 hover:text-gray-50"
+          >
+            {{title}}
+          </a>
+          {{/each }}
+        </div>
+        <div class="mt-6">
+          <span class="flex w-full rounded-md shadow-sm">
+            <a
+              href="#"
+              class="flex items-center justify-center w-1/2 px-4 py-2 mx-auto mb-10 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-800 border border-transparent rounded-md hover:bg-blue-900 focus:outline-none focus:border-blue-900 focus:shadow-outline-indigo active:bg-blue-900"
+            >
+              Sign up
+            </a>
+          </span>
+          <p
+            class="mt-6 text-base font-medium leading-6 text-center text-gray-500"
+          >
+            Existing customer?
+            <a
+              href="#"
+              class="font-medium text-blue-700 transition duration-150 ease-in-out hover:text-blue-900"
+            >
+              Sign in
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

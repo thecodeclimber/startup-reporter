@@ -1,0 +1,20 @@
+<div
+  x-data="{ mobileMenuOpen: false, {{#each navLinks}}{{#if hasSubmenu}}{{title}}MenuOpen: false{{/if}}{{/each}} }"
+  @keydown.window.escape="mobileMenuOpen = false"
+  class="relative bg-blue-700"
+>
+  <div class="px-4 mx-auto max-w-7xl sm:px-6">
+    <div
+      class="flex items-center justify-between md:justify-start md:space-x-10"
+    >
+      <!-- prettier-ignore -->
+      {{> general/logo--light }}
+      {{> main/header/mobile--open }}
+      {{> main/header/desktop--menu }}
+    </div>
+  </div>
+
+  <!-- prettier-ignore -->
+  {{> main/header/desktop--submenu }}
+  {{> main/header/mobile--header }}
+</div>
